@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bucket List — WanderWise</title>
+<script>
+  (function(){ var t = localStorage.getItem('ww_theme'); if (t) document.documentElement.setAttribute('data-theme', t); })();
+</script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="navbar-root"></div>
+
+<section class="section-tight">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">💛 Your Bucket List</span>
+      <h2>Places you've saved for later</h2>
+      <p>Saved locally on this device. Pick one to start planning your trip.</p>
+    </div>
+    <div class="dest-grid" id="bucket-grid"></div>
+  </div>
+</section>
+
+<div id="footer-root"></div>
+
+<script src="js/theme.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/data-personalities.js"></script>
+<script src="js/data-destinations.js"></script>
+<script src="js/components.js"></script>
+<script>
+  function renderBucketList() {
+    const saved = WW.getBucketList();
+    const grid = document.getElementById('bucket-grid');
+    const destinations = saved
+      .map(s => DESTINATIONS.find(d => d.slug === s.slug))
+      .filter(Boolean);
+
+    if (!destinations.length) {
+      grid.innerHTML = `
+        <div class="empty-state" style="grid-column: 1 / -1;">
+          <div class="emoji">💛</div>
+          <h3>Your bucket list is empty</h3>
+          <p>Save destinations while exploring — they'll show up here.</p>
+          <div style="margin-top:20px;"><a href="explore.html" class="btn btn-primary">Explore Destinations</a></div>
+        </div>
+      `;
+      return;
+    }
+
+    mountDestGrid(grid, destinations);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    renderNavbar('bucket-list.html');
+    renderBucketList();
+
+    // Re-render after modal actions (save/unsave) change the list
+    document.body.addEventListener('click', (e) => {
+      if (e.target.closest('.save-pin') || e.target.id === 'dest-modal-save') {
+        setTimeout(renderBucketList, 50);
+      }
+    });
+  });
+</script>
+</body>
+</html>

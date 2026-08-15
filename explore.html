@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Explore Destinations — WanderWise</title>
+<script>
+  (function(){ var t = localStorage.getItem('ww_theme'); if (t) document.documentElement.setAttribute('data-theme', t); })();
+</script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="navbar-root"></div>
+
+<section class="section-tight">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">🗺️ Explore Destinations</span>
+      <h2>90 destinations, matched to how you actually like to travel</h2>
+      <p id="explore-sub">Search, filter, or browse recommendations built from your Travel DNA.</p>
+    </div>
+
+    <div id="recs-root"></div>
+
+    <div class="card" style="padding:22px 24px; margin-bottom:28px; display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+      <div>
+        <h3 style="font-size:1rem; margin-bottom:4px;">🎲 Can't decide?</h3>
+        <p class="muted small">Let WanderWise pick for you.</p>
+      </div>
+      <div class="flex gap-8 flex-wrap">
+        <button class="btn btn-secondary btn-sm" id="surprise-random">Random</button>
+        <button class="btn btn-secondary btn-sm" id="surprise-personality">Personality Based</button>
+        <button class="btn btn-secondary btn-sm" id="surprise-challenge">Challenge Me</button>
+      </div>
+    </div>
+
+    <div class="filters-bar">
+      <input type="text" class="search-input" id="search-input" placeholder="Search destinations or countries…">
+      <select id="country-filter"><option value="">All Countries</option></select>
+      <select id="budget-filter">
+        <option value="">Any Budget</option>
+        <option value="0-40000">Under ₹40k</option>
+        <option value="40000-90000">₹40k – 90k</option>
+        <option value="90000-160000">₹90k – 1.6L</option>
+        <option value="160000-999999999">₹1.6L+</option>
+      </select>
+      <select id="sort-filter">
+        <option value="name">Sort: Name (A–Z)</option>
+        <option value="budget-asc">Sort: Budget (Low → High)</option>
+        <option value="budget-desc">Sort: Budget (High → Low)</option>
+      </select>
+    </div>
+    <div class="pill-group" id="personality-pills" style="margin-bottom:24px;"></div>
+
+    <div class="dest-grid" id="all-dest-grid"></div>
+  </div>
+</section>
+
+<div id="footer-root"></div>
+
+<script src="js/theme.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/data-personalities.js"></script>
+<script src="js/data-destinations.js"></script>
+<script src="js/data-quiz.js"></script>
+<script src="js/components.js"></script>
+<script src="js/explore.js"></script>
+</body>
+</html>

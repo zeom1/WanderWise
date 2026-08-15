@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel Personality Quiz — WanderWise</title>
+<script>
+  (function(){ var t = localStorage.getItem('ww_theme'); if (t) document.documentElement.setAttribute('data-theme', t); })();
+</script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="navbar-root"></div>
+
+<div class="quiz-wrap">
+
+  <!-- INTRO -->
+  <div id="view-intro" class="quiz-intro fade-in">
+    <span class="eyebrow">🧬 Travel Personality Quiz</span>
+    <h1>What's your Travel DNA?</h1>
+    <p>Answer 20 quick questions about how you like to travel. We'll combine your top three instincts into a personalized Travel DNA — then match you to real destinations.</p>
+    <div class="rules">
+      <div>⏱️ <span>Takes about 2 minutes — 20 questions, no skipping.</span></div>
+      <div>🎯 <span>Each answer nudges your Explorer, Culture, Beach and 7 other travel instincts.</span></div>
+      <div>🔒 <span>Your answers stay on this device — nothing is uploaded anywhere.</span></div>
+    </div>
+    <div>
+      <button class="btn btn-primary" id="start-quiz-btn">Start Your Journey →</button>
+    </div>
+  </div>
+
+  <!-- QUESTION -->
+  <div id="view-question" style="display:none;">
+    <div class="quiz-top">
+      <span id="q-counter">Question 1 of 20</span>
+      <span id="q-percent">5%</span>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:5%"></div></div>
+    <h2 class="quiz-question" id="q-text">Question text</h2>
+    <div class="quiz-options" id="q-options"></div>
+    <div class="quiz-nav">
+      <button class="btn btn-ghost" id="back-btn">← Back</button>
+      <button class="btn btn-primary" id="next-btn" disabled>Next →</button>
+    </div>
+  </div>
+
+  <!-- ANALYSIS -->
+  <div id="view-analysis" class="quiz-analysis" style="display:none;">
+    <div class="spinner-orb">🧭</div>
+    <h2>Analyzing your answers…</h2>
+    <p class="analysis-msg" id="analysis-msg">Mapping your travel instincts…</p>
+  </div>
+
+  <!-- QUICK GUESS -->
+  <div id="view-guess" class="quiz-guess" style="display:none;">
+    <span class="eyebrow">🔮 Quick Guess</span>
+    <h2 style="margin:14px 0 8px;">Before we reveal everything...</h2>
+    <p class="muted">Which of these feels more like you? This is just for fun — it won't change your result.</p>
+    <div class="guess-options" id="guess-options"></div>
+  </div>
+
+  <!-- RESULT -->
+  <div id="view-result" class="quiz-result" style="display:none;">
+    <div class="dna-header">
+      <div class="dna-icon" id="dna-icon">🧭</div>
+      <span class="eyebrow" id="dna-guess-note" style="display:none;"></span>
+      <h1 class="dna-primary-name" id="dna-primary-name">The Explorer</h1>
+      <p class="dna-sub" id="dna-primary-desc">Thrives on adventure, uncertainty and challenges.</p>
+    </div>
+
+    <div class="card" style="padding: 26px 28px;">
+      <h3 style="font-size:1rem; margin-bottom:14px; text-align:left;">Your Travel DNA Breakdown</h3>
+      <div class="dna-breakdown" id="dna-breakdown"></div>
+
+      <div class="radar-wrap" id="radar-wrap"></div>
+    </div>
+
+    <div class="dna-interp" id="dna-interp"></div>
+
+    <div class="result-actions">
+      <a href="explore.html?matched=1" class="btn btn-primary">See My Matches →</a>
+      <button class="btn btn-secondary" id="retake-btn">🔁 Retake Quiz</button>
+      <a href="personalities.html" class="btn btn-ghost">Explore All Personalities</a>
+    </div>
+
+    <div style="margin-top:18px;">
+      <button class="btn btn-ghost btn-sm" id="zodiac-toggle">✨ Optional: Zodiac Travel Insight</button>
+    </div>
+    <div class="card zodiac-box hidden" id="zodiac-box">
+      <div class="field-row">
+        <label>Pick your zodiac sign</label>
+        <select id="zodiac-select">
+          <option value="">Choose a sign…</option>
+        </select>
+      </div>
+      <p class="muted small" id="zodiac-result"></p>
+    </div>
+  </div>
+
+</div>
+
+<div id="footer-root"></div>
+
+<script src="js/theme.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/data-personalities.js"></script>
+<script src="js/data-destinations.js"></script>
+<script src="js/data-quiz.js"></script>
+<script src="js/components.js"></script>
+<script src="js/quiz.js"></script>
+</body>
+</html>

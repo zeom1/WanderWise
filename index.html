@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WanderWise — Discover Yourself To Discover The World</title>
+<meta name="description" content="Take the Travel Personality Quiz, get destinations matched to your Travel DNA, and plan your trip end to end.">
+<script>
+  (function(){ var t = localStorage.getItem('ww_theme'); if (t) document.documentElement.setAttribute('data-theme', t); })();
+</script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="navbar-root"></div>
+
+<section class="hero">
+  <div class="container hero-inner">
+    <span class="eyebrow">✨ Personality-driven travel planning</span>
+    <h1>Discover Yourself. <br><span class="grad">Discover The World.</span></h1>
+    <p class="lead">Take a 2-minute quiz to uncover your Travel DNA, then get destinations, budgets, and packing lists matched to exactly who you are as a traveler.</p>
+    <div class="hero-actions">
+      <a href="quiz.html" class="btn btn-primary">🧭 Start Your Journey</a>
+      <a href="explore.html" class="btn btn-secondary">Explore Destinations</a>
+    </div>
+    <div class="stats-row">
+      <div class="stat"><div class="num">90</div><div class="label">Destinations</div></div>
+      <div class="stat"><div class="num">10</div><div class="label">Travel Personalities</div></div>
+      <div class="stat"><div class="num">60</div><div class="label">Quiz Questions</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="features">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Features</span>
+      <h2>Everything you need to plan a trip that actually fits you</h2>
+      <p>One end-to-end flow: from figuring out who you are as a traveler, to packing your bag.</p>
+    </div>
+    <div class="grid">
+      <div class="feature-card">
+        <div class="feature-icon">🧭</div>
+        <h3>Travel Personality Quiz</h3>
+        <p>20 interactive questions reveal your Primary, Secondary and Hidden travel personality — your Travel DNA.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🗺️</div>
+        <h3>Destination Explorer</h3>
+        <p>Search and filter 90 destinations, or get Perfect Matches, Hidden Gems, and Outside-Comfort-Zone picks.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💛</div>
+        <h3>Personal Bucket List</h3>
+        <p>Save favorite destinations to your device with Local Storage — no sign-up needed.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💰</div>
+        <h3>Budget & Savings Planner</h3>
+        <p>Estimate trip costs, set a savings goal, and track progress toward your next adventure.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎒</div>
+        <h3>Smart Packing Checklist</h3>
+        <p>Auto-generated packing lists tailored to your destination's season and personality.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎲</div>
+        <h3>Surprise & Countdown Tools</h3>
+        <p>Can't decide? Get a random destination, or count down the days to your next trip.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="card" style="padding: 40px; display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap; background: linear-gradient(135deg, var(--accent-soft), var(--accent-2-soft));">
+      <div style="max-width:520px;">
+        <h2 style="font-size:1.5rem; margin-bottom:8px;">Not sure where to begin?</h2>
+        <p class="muted">Take the quiz — it takes about two minutes and gets more accurate the more honestly you answer.</p>
+      </div>
+      <a href="quiz.html" class="btn btn-primary">Take the Quiz →</a>
+    </div>
+  </div>
+</section>
+
+<div id="footer-root"></div>
+
+<script src="js/theme.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/data-personalities.js"></script>
+<script src="js/data-destinations.js"></script>
+<script src="js/components.js"></script>
+<script>renderNavbar('index.html');</script>
+</body>
+</html>

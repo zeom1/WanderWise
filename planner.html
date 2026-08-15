@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Planning Dashboard — WanderWise</title>
+<script>
+  (function(){ var t = localStorage.getItem('ww_theme'); if (t) document.documentElement.setAttribute('data-theme', t); })();
+</script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="navbar-root"></div>
+
+<section class="section-tight">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">📊 Planning Dashboard</span>
+      <h2>Turn a saved destination into a real trip</h2>
+      <p>Pick a trip, track your budget, build a packing list, and count down the days.</p>
+    </div>
+
+    <div class="planner-grid">
+      <div class="planner-col">
+
+        <div class="card planner-card">
+          <h3>🧳 Active Trip</h3>
+          <p class="sub">Choose which destination you're planning for.</p>
+          <div class="field-row">
+            <label>Destination</label>
+            <select id="dest-select"></select>
+          </div>
+          <div class="field-row">
+            <label>Trip Date</label>
+            <input type="date" id="trip-date">
+          </div>
+          <div class="field-row">
+            <label>Traveling as</label>
+            <select id="trip-type">
+              <option value="solo">Solo</option>
+              <option value="couple">Couple</option>
+              <option value="family">Family</option>
+              <option value="friends">Friends Group</option>
+            </select>
+          </div>
+          <div class="countdown-grid" id="countdown-grid"></div>
+          <p class="muted small text-center" id="countdown-label"></p>
+        </div>
+
+        <div class="card planner-card">
+          <h3>💰 Budget &amp; Savings</h3>
+          <p class="sub">Estimate the trip cost, set a goal, and track what you've saved.</p>
+          <div class="field-inline">
+            <div class="field-row">
+              <label>Estimated Budget (₹)</label>
+              <input type="number" id="budget-total" placeholder="e.g. 60000">
+            </div>
+            <div class="field-row">
+              <label>Savings Goal (₹)</label>
+              <input type="number" id="savings-goal" placeholder="e.g. 60000">
+            </div>
+          </div>
+          <div class="savings-progress">
+            <div class="top-row"><span>Saved so far</span><strong id="savings-saved-label">₹0</strong></div>
+            <div class="progress-track"><div class="progress-fill" id="savings-fill" style="width:0%"></div></div>
+            <p class="muted small" id="savings-pct-label" style="margin-top:6px;"></p>
+          </div>
+          <div class="field-inline" style="margin-top:16px;">
+            <input type="number" id="add-funds-input" placeholder="Add amount (₹)">
+            <button class="btn btn-secondary" id="add-funds-btn">+ Add to Savings</button>
+          </div>
+        </div>
+
+        <div class="card planner-card">
+          <h3>📝 Trip Notes</h3>
+          <p class="sub">Anything you don't want to forget.</p>
+          <textarea id="trip-notes" rows="5" style="width:100%; resize:vertical;" placeholder="Visa reminders, flight numbers, must-see spots…"></textarea>
+        </div>
+
+      </div>
+
+      <div class="planner-col">
+        <div class="card planner-card">
+          <h3>🎒 Smart Packing Checklist</h3>
+          <p class="sub" id="packing-sub">Auto-generated for your destination, season, and travel style.</p>
+          <div class="checklist" id="packing-checklist"></div>
+          <div class="flex justify-between items-center" style="margin-top:14px;">
+            <span class="muted small" id="packing-progress-label"></span>
+            <button class="btn btn-ghost btn-sm" id="regen-packing-btn">🔁 Regenerate</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="card planner-card" style="margin-top:22px;">
+      <h3>📋 Journey Summary</h3>
+      <p class="sub">Everything about your upcoming trip, at a glance.</p>
+      <div class="summary-grid" id="summary-grid"></div>
+    </div>
+
+  </div>
+</section>
+
+<div id="footer-root"></div>
+
+<script src="js/theme.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/data-personalities.js"></script>
+<script src="js/data-destinations.js"></script>
+<script src="js/components.js"></script>
+<script src="js/planner.js"></script>
+</body>
+</html>

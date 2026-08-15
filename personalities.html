@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel Personalities — WanderWise</title>
+<script>
+  (function(){ var t = localStorage.getItem('ww_theme'); if (t) document.documentElement.setAttribute('data-theme', t); })();
+</script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="navbar-root"></div>
+
+<section class="section-tight">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">🧬 The 10 Travel Personalities</span>
+      <h2>Every traveler fits somewhere on this map</h2>
+      <p>Your Travel DNA is a blend of these — a Primary, a Secondary, and a Hidden Trait. Haven't found yours yet?
+        <a href="quiz.html" style="color:var(--accent); font-weight:600;">Take the quiz →</a>
+      </p>
+    </div>
+    <div class="grid" id="personalities-grid"></div>
+  </div>
+</section>
+
+<div id="footer-root"></div>
+
+<script src="js/theme.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/data-personalities.js"></script>
+<script src="js/data-destinations.js"></script>
+<script src="js/components.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    renderNavbar('personalities.html');
+    const result = WW.getQuizResult();
+    const grid = document.getElementById('personalities-grid');
+    grid.innerHTML = PERSONALITIES.map(p => {
+      const isYou = result && result.primary === p.key;
+      return `
+      <div class="card pers-card${isYou ? ' is-you' : ''}">
+        <div class="top">
+          <div class="pers-emoji" style="background:${p.color}22;">${p.emoji}</div>
+          <div>
+            <h3>${p.name}</h3>
+            ${isYou ? '<span class="you-flag">★ This is you</span>' : ''}
+          </div>
+        </div>
+        <p class="desc">${p.description}</p>
+        <div class="pers-row"><span class="k">Strengths:</span> ${p.strengths.join(', ')}</div>
+        <div class="pers-row"><span class="k">Watch for:</span> ${p.weaknesses.join(', ')}</div>
+        <div class="pers-row"><span class="k">Ideal:</span> ${p.ideal.join(', ')}</div>
+      </div>`;
+    }).join('');
+  });
+</script>
+</body>
+</html>
