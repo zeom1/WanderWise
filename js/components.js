@@ -58,8 +58,7 @@ function renderFooter() {
 
 /* ---------- Destination card ---------- */
 function destCoverStyle(dest) {
-  const c = PERSONALITY_COLOR[dest.personalities[0]] || '#0d9488';
-  return `background: linear-gradient(135deg, ${c}44, ${c}88), url('${dest.image}'); background-size: cover; background-position: center;`;
+  return `background: url('${dest.image}') no-repeat center center; background-size: cover;`;
 }
 
 function destCardHTML(dest, opts = {}) {
@@ -73,7 +72,6 @@ function destCardHTML(dest, opts = {}) {
       <div class="dest-cover" style="${destCoverStyle(dest)}">
         ${matchLabel}
         <button class="save-pin${saved ? ' saved' : ''}" data-save="${dest.slug}" title="Save to bucket list">${saved ? '♥' : '♡'}</button>
-        <span>${dest.emoji}</span>
       </div>
       <div class="dest-body">
         <h4>${dest.name}</h4>
@@ -132,7 +130,6 @@ function openDestModal(slug) {
       <div class="modal">
         <div class="modal-cover" style="${destCoverStyle(dest)}">
           <button class="modal-close" id="dest-modal-close">✕</button>
-          <span>${dest.emoji}</span>
         </div>
         <div class="modal-body">
           <h2>${dest.name}</h2>
