@@ -59,7 +59,7 @@ function renderFooter() {
 /* ---------- Destination card ---------- */
 function destCoverStyle(dest) {
   const c = PERSONALITY_COLOR[dest.personalities[0]] || '#0d9488';
-  return `background: linear-gradient(135deg, ${c}44, ${c}88), url('img/destinations/${dest.slug}.jpg'); background-size: cover; background-position: center;`;
+  return `background: linear-gradient(135deg, ${c}44, ${c}88), url('${dest.image}'); background-size: cover; background-position: center;`;
 }
 
 function destCardHTML(dest, opts = {}) {
