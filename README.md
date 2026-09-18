@@ -18,6 +18,8 @@ By taking a quick interactive quiz, users uncover their core "Travel DNA" (their
 
 From discovery to execution, WanderWise provides an end-to-end flow: finding your destination, estimating the budget, generating a smart packing list, and saving your bucket list entirely offline.
 
+*Note: This project was partially vibe coded with the help of [Antigravity](https://github.com/google/antigravity).*
+
 ## ✨ Features
 
 - **🧠 Travel Personality Quiz**: 20 interactive questions to reveal your unique Travel DNA across 10 distinct travel personalities.
